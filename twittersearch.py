@@ -7,16 +7,16 @@ import twitter
 #Need to build function to get them from file, but for now it is easier
 #to hardcode.
 ApiUrl = 'https://api.twitter.com/1.1/search/tweets.json?q=earthquake'
-Auth = OAuth1('3O1xMoFNpS2hlnsqMKhnq5Vkl',
-'HVuv5KXQAubxj0LenAYLplRKwUnl5x7ePFhahyXqmnfAvfxobz',
-'1185108310732787712-3CtSTAJeq5XWu3fQMsdbfeDJWuCxtM',
-'JXDecvIS7aeQ3zUf7QIMB3UA8QstkZJhL6ohLtLK5hCdz')
+Auth = OAuth1('CONSUMER_KEY',
+'CONSUMER_SECRET',
+'TOKEN_KEY',
+'TOKEN_SECRET')
 
 #Same as above, but for twitter module. Much easier post requests
-api = twitter.Api(consumer_key='3O1xMoFNpS2hlnsqMKhnq5Vkl',
-consumer_secret='HVuv5KXQAubxj0LenAYLplRKwUnl5x7ePFhahyXqmnfAvfxobz',
-access_token_key='1185108310732787712-3CtSTAJeq5XWu3fQMsdbfeDJWuCxtM',
-access_token_secret='JXDecvIS7aeQ3zUf7QIMB3UA8QstkZJhL6ohLtLK5hCdz')
+api = twitter.Api(consumer_key='CONSUMER_KEY',
+consumer_secret='CONSUMER_SECRET',
+access_token_key='TOKEN_KEY',
+access_token_secret='TOKEN_SECRET')
 
 #Function that searches for tweets based on earthquake data. This takes a list
 #and fills it into the parameters sent as a get request to Twitter, but a dictionary would be
