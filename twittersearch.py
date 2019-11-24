@@ -35,7 +35,7 @@ def SearchTweets(QuakeData):
 #Formats these into request. Printing tweet might not be necessary, but still
 #useful sometimes.
 def PostTweet(Magnitude,Location,ListToTweet):
-    Tweet = "Earthquake of magnitude {} found in {}. Described as {},{},{}".format(Magnitude,
+    Tweet = "Earthquake of magnitude {} found in: \' {} \'. Described as \'{}\', \'{}\', \'{}\'".format(Magnitude,
     Location,ListToTweet[0],ListToTweet[1],ListToTweet[2])
     print(Tweet)
     status = api.PostUpdate(Tweet)
