@@ -1,3 +1,4 @@
+import sys
 import fetch #To get earthquake info
 import twittersearch #To search and post to twitter
 import sqlite3 #Module to connect and manipulate SQLite database
@@ -29,7 +30,7 @@ while True:
 
             #Only saves words of 3 characters or more, excluding the word
             #earthquake. Adds these words to list being sent to database
-            if len(x) > 3 and x.upper != "EARTHQUAKE":
+            if len(x) > 3 and not "QUAKE" in x.upper():
                 ListToDatabase.append(x)
             else:
                 continue
@@ -62,15 +63,18 @@ while True:
 
     #Calls functions to first rank the words by occurrence and get the top
     #three words, which will be included in the tweet
+    print(WordsFromDatabase)
     DictWords = WordSort.RankWords(WordsFromDatabase)
+    print(DictWords)
     TopThreeWords = WordSort.GetTopThree(DictWords)
+    print(TopThreeWords)
 
     #Try block in case there are no elligible tweets gathered. If there are the
     #program will end and a tweet will be posted, if not the program tries to
     #search again in 15 minutes.
     try:
         print(twittersearch.PostTweet(data[0],data[-1],TopThreeWords))
-        quit()
+        sys.exit()
     except:
         time.sleep(900)
         continue
